@@ -1,0 +1,43 @@
+{
+  "name": "@yun-chien-lo/lyc-ui",
+  "type": "module",
+  "version": "0.0.16",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.59.3",
+    "terser": "^5.16.6",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.0",
+    "vue-tsc": "^1.2.0"
+  },
+  "description": "",
+  "main": "dist/lyc-ui.umd.cjs",
+  "module": "dist/lyc-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lyc-ui.js",
+      "require": "./dist/lyc-ui.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUN-CHIEN-LO/lyc-ui.git"
+  },
+  "author": "yun-chien-lo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YUN-CHIEN-LO/lyc-ui/issues"
+  },
+  "homepage": "https://github.com/YUN-CHIEN-LO/lyc-ui#readme"
+}
