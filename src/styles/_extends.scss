@@ -1,0 +1,11 @@
+.has-padding {
+    padding: $padding-horizontal $padding-vertical;
+}
+
+.has-border-radius{
+    border-radius: $radius;
+}
+
+.has-transition{
+    @include setTransition();
+}
