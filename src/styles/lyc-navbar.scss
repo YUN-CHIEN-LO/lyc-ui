@@ -1,0 +1,8 @@
+@import "./lyc-global.scss";
+
+.lyc-navbar {
+  @extend .has-padding;
+  @include setFlex($jc: space-between, $ai: center);
+  background-color: $color-white;
+  z-index: 2000;
+}

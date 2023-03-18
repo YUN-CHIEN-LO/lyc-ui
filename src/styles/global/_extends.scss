@@ -1,0 +1,35 @@
+// 使用 padding
+.has-padding {
+  box-sizing: border-box;
+  padding: $padding-horizontal $padding-vertical;
+}
+.has-padding-small {
+  box-sizing: border-box;
+  padding: $padding-horizontal $padding-vertical;
+}
+
+.has-margin {
+  margin: 8px;
+}
+
+// 使用圓角
+.has-border-radius {
+  border-radius: $border-radius;
+}
+
+.has-shadow {
+  @extend .has-transition;
+  @include setShadow($shadow-medium $shadow-medium $shadow-blur $shadow-color);
+}
+
+// 使用漸變動畫
+.has-transition {
+  @include setTransition();
+}
+
+// 不可選取文字
+.prevent-select {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

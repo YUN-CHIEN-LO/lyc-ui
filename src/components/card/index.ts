@@ -1,4 +1,4 @@
-import Component from "@/components/button/LycButton.vue";
+import Component from "@/components/card/LycCard.vue";
 import { App } from "vue";
 
 Component.install = (Vue: App) => {

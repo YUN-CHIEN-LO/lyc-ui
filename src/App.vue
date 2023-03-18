@@ -1,16 +1,12 @@
 <template>
-  <div>
-    App
-    <lyc-button>123</lyc-button>
-  </div>
+  <DocIndex />
 </template>
 
 <script lang="ts">
-import LycButton from "@/components/button/LycButton.ce.vue";
+import DocIndex from "@/doc/DocIndex.vue";
+
 export default {
   name: "App",
-  components: { LycButton },
+  components: { DocIndex },
 };
 </script>
-
-<style></style>

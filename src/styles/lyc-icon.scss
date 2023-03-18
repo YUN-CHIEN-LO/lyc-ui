@@ -1,0 +1,123 @@
+@import "./lyc-global.scss";
+
+.lyc-icon {
+  position: relative;
+  @extend .has-transition;
+  & .lyc-icon__strike {
+    @extend .has-transition;
+    position: absolute;
+  }
+  &.is-small {
+    width: 16px;
+    height: 16px;
+    & .lyc-icon__strike {
+      width: 14px;
+      height: 2px;
+      border-radius: 2px;
+    }
+  }
+  &.is-medium {
+    width: 24px;
+    height: 24px;
+    & .lyc-icon__strike {
+      width: 18px;
+      height: 2px;
+      border-radius: 2px;
+    }
+  }
+  &.is-large {
+    width: 36px;
+    height: 36px;
+    & .lyc-icon__strike {
+      width: 24px;
+      height: 3px;
+      border-radius: 3px;
+    }
+  }
+  &.is-cross {
+    & .lyc-icon__strike {
+      top: 50%;
+      left: 50%;
+      &--1 {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &--2 {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+  &.is-hamburger {
+    & .lyc-icon__strike {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      &--1 {
+        top: 25%;
+      }
+      &--2 {
+        top: 50%;
+      }
+      &--3 {
+        top: 75%;
+      }
+    }
+    &:not(.is-open):hover {
+      & .lyc-icon__strike {
+        &--1 {
+          top: 50%;
+        }
+        &--2 {
+          top: 75%;
+        }
+        &--3 {
+          top: 25%;
+        }
+      }
+    }
+    &.is-open {
+      & .lyc-icon__strike {
+        &--1 {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &--2 {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        &--3 {
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+      }
+      &:hover {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &.is-default > .lyc-icon__strike {
+    background-color: $color-dark;
+  }
+  &.is-dark > .lyc-icon__strike {
+    background-color: $color-dark;
+  }
+  &.is-light > .lyc-icon__strike {
+    background-color: $color-light;
+  }
+  &.is-primary > .lyc-icon__strike {
+    background-color: $color-primary;
+  }
+  &.is-secondary > .lyc-icon__strike {
+    background-color: $color-secondary;
+  }
+  &.is-success > .lyc-icon__strike {
+    background-color: $color-success;
+  }
+  &.is-warning > .lyc-icon__strike {
+    background-color: $color-warning;
+  }
+  &.is-danger > .lyc-icon__strike {
+    background-color: $color-danger;
+  }
+}
