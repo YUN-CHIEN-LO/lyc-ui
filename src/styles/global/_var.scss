@@ -1,0 +1,26 @@
+// === Color Palettes ===
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+$color-light: #f6f1f1 !default;
+$color-dark: #2e3840 !default;
+$color-primary: #a2c3f9 !default;
+$color-secondary: #d7c8f2 !default;
+$color-danger: #fc7979 !default;
+$color-success: #88c484 !default;
+$color-warning: #f7cf7a !default;
+$primary-light: mix($color-primary, $color-white, 90%) !default;
+$primary-dark: mix($color-primary, $color-black, 90%) !default;
+// === Basic Style ===
+$padding-horizontal: 8px !default;
+$padding-vertical: 16px !default;
+$border-radius: 8px !default;
+$border-radius-large: 16px !default;
+
+$base-font-size: 16px;
+
+$base-text-color: $color-dark;
+
+$shadow-color: rgba($color-dark, 0.3) !default;
+$shadow-small: 4px !default;
+$shadow-medium: 8px !default;
+$shadow-blur: 0px !default;

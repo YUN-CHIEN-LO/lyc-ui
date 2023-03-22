@@ -1,20 +1,26 @@
 {
   "name": "@yun-chien-lo/lyc-ui",
   "type": "module",
-  "version": "0.0.16",
+  "version": "0.0.33",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
+    "sass": "sass --no-source-map --style=compressed src/styles:dist/css",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "clean": "rm -rf ./dist",
+    "prebuild": "npm run clean",
+    "postbuild": "npm run sass"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "glob": "^9.3.1",
     "sass": "^1.59.3",
     "terser": "^5.16.6",
     "typescript": "^5.0.2",
@@ -22,12 +28,16 @@
     "vue-tsc": "^1.2.0"
   },
   "description": "",
-  "main": "dist/lyc-ui.umd.cjs",
-  "module": "dist/lyc-ui.js",
+  "main": "./dist/js/lyc-ui.js",
+  "module": "./dist/js/lyc-ui.js",
   "exports": {
     ".": {
-      "import": "./dist/lyc-ui.js",
-      "require": "./dist/lyc-ui.umd.cjs"
+      "import": "./dist/js/lyc-ui.js",
+      "require": "./dist/js/lyc-ui.js"
+    },
+    "./dist/css/lyc-ui.css": {
+      "import": "./dist/css/lyc-ui.css",
+      "require": "./dist/css/lyc-ui.css"
     }
   },
   "repository": {

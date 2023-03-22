@@ -1,0 +1,70 @@
+@import "./lyc-global.scss";
+
+.lyc-button {
+  display: inline-block;
+  @extend .has-border-radius;
+  @extend .has-transition;
+  @extend .prevent-select;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  &:first-child {
+    margin-left: 0;
+  }
+  cursor: pointer;
+  &:hover {
+    filter: brightness(110%);
+  }
+  &.is-shadow {
+    &:active,
+    &:focus {
+      @include setShadow($shadow-small $shadow-small $shadow-blur $shadow-color);
+    }
+  }
+  &.is-full {
+    width: 100%;
+  }
+  &.is-alone {
+    margin: 4px 0px;
+  }
+  &.is-small {
+    padding: 4px;
+  }
+  &.is-medium {
+    padding: 8px 16px;
+  }
+  &.is-large {
+    padding: 12px 18px;
+  }
+  &.is-default {
+    &:active,
+    &:focus {
+      background-color: rgba($color-white, 0.4);
+    }
+  }
+  &.is-light {
+    background-color: $color-light;
+  }
+  &.is-dark {
+    background-color: $color-dark;
+    & * {
+      color: $color-white;
+    }
+  }
+  &.is-primary {
+    background-color: $color-primary;
+  }
+  &.is-secondary {
+    background-color: $color-secondary;
+  }
+  &.is-danger {
+    background-color: $color-danger;
+  }
+  &.is-success {
+    background-color: $color-success;
+  }
+  &.is-warning {
+    background-color: $color-warning;
+  }
+}

@@ -1,0 +1,77 @@
+@import "./lyc-global.scss";
+
+.lyc-card {
+  @extend .has-margin;
+  @extend .has-transition;
+  border-radius: $border-radius-large;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 200px;
+  background-color: $color-white;
+  overflow: hidden;
+  &__header {
+    @include setFlex($fw: nowrap);
+  }
+  &__title {
+    @extend .has-padding;
+  }
+  &__tool {
+    @extend .has-padding;
+    margin-left: auto;
+  }
+  &__close {
+    @include setFlex();
+  }
+  &__body {
+    @extend .has-padding;
+  }
+  &.is-shadow:hover {
+    @extend .has-shadow;
+  }
+  &:not(.is-full) {
+    & .lyc-card__body {
+      background-color: $color-white;
+    }
+  }
+  &.is-full {
+    & .lyc-card__header {
+      border-bottom: solid 2px $color-white;
+    }
+    &.is-dark {
+      & * {
+        color: $color-white;
+      }
+    }
+  }
+  &.is-default {
+    & .lyc-card__header {
+      border-bottom: solid 2px $color-light;
+    }
+  }
+  &.is-light {
+    background-color: $color-light;
+  }
+  &.is-dark {
+    background-color: $color-dark;
+    & .lyc-card__header {
+      & * {
+        color: $color-white;
+      }
+    }
+  }
+  &.is-primary {
+    background-color: $color-primary;
+  }
+  &.is-secondary {
+    background-color: $color-secondary;
+  }
+  &.is-danger {
+    background-color: $color-danger;
+  }
+  &.is-success {
+    background-color: $color-success;
+  }
+  &.is-warning {
+    background-color: $color-warning;
+  }
+}

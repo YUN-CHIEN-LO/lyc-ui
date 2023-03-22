@@ -1,0 +1,40 @@
+@mixin setTransition($transition: all 0.2s ease-in-out) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin setFlex($fd: row, $jc: flex-start, $ai: flex-start, $fw: wrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: $fw;
+}
+
+@mixin setShadow($shadow...) {
+  @each $pre in -webkit-, -moz-, -ms-, -o- {
+    #{$pre + box-shadow}: $shadow;
+  }
+
+  #{box-shadow}: $shadow;
+}
+
+@mixin setKeyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}

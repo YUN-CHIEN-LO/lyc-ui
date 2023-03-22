@@ -1,0 +1,6 @@
+@import "./lyc-global.scss";
+
+.lyc-article {
+  @extend .has-padding;
+  flex: 1;
+}
