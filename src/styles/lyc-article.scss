@@ -1,6 +1,9 @@
 @import "./lyc-global.scss";
 
 .lyc-article {
-  @extend .has-padding;
+  box-sizing: border-box;
+  padding: $article-padding;
   flex: 1;
+  margin-bottom: 64px;
+  overflow: auto;
 }

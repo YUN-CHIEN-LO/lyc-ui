@@ -1,0 +1,14 @@
+@import "./lyc-global.scss";
+
+.lyc-dialog {
+  background-color: $dialog-bg-color;
+  border-radius: $dialog-border-radius;
+  padding: $dialog-padding;
+  &__header {
+    @include setFlex($ai: center, $fw: nowrap);
+  }
+  &__tool {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+}

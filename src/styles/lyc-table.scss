@@ -1,0 +1,44 @@
+@import "./lyc-global.scss";
+
+.lyc-table {
+  overflow: auto;
+  position: relative;
+  & table {
+    table-layout: fixed;
+  }
+  & tr {
+    @include setTransition();
+    &:hover {
+      background-color: $table-hover-color;
+    }
+  }
+  & thead {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    background-color: $table-header-color;
+    & tr {
+      border-bottom: solid 2px $table-border-color;
+      &:hover {
+        background-color: $table-header-color;
+      }
+    }
+  }
+  & th,
+  & td {
+    border-bottom: solid 1px $table-border-color;
+  }
+  &.is-border {
+    & th,
+    & td {
+      border: solid 1px $table-border-color;
+    }
+  }
+  &__cell {
+    min-height: 36px;
+    padding: 4px 8px;
+    box-sizing: border-box;
+    word-break: break-word; 
+    @include setFlex($ai: center);
+  }
+}

@@ -1,0 +1,11 @@
+@import "./lyc-global.scss";
+
+.lyc-checkbox {
+  &__checkbox {
+    border: solid 1px $checkbox-border-color;
+    border-radius: 4px;
+    & > .check-input__icon > .lyc-icon__strike {
+      border-color: $checkbox-icon-color !important;
+    }
+  }
+}

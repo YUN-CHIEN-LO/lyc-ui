@@ -2,50 +2,21 @@
 
 .lyc-aside {
   position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
   &__wrapper {
     position: relative;
-    @extend .has-transition;
-    padding: $padding-horizontal 0px;
-    background-color: $color-white;
-    overflow: hidden;
-    &.is-open {
-      @extend .has-padding;
-      overflow: visible;
-    }
+    @include setTransition();
   }
+
   &__header {
     @include setFlex($fw: nowrap);
   }
-  &__tool {
-    z-index: 100;
-    position: absolute;
-    @include setFlex();
-    top: -16px;
-  }
-  &.is-left {
-    & .lyc-aside__tool {
-      right: -16px;
-    }
-  }
-  &.is-right {
-    & .lyc-aside__tool {
-      left: -16px;
-    }
-  }
-  &.is-fixed > .lyc-aside__wrapper {
-    position: absolute;
-    z-index: 2000;
-    top: 0;
-    &.is-open {
-      @extend .has-transition;
-    }
-  }
-  &.is-left.is-fixed > .is-open {
-    @extend .has-shadow;
-    left: 0;
-  }
-  &.is-right.is-fixed > .is-open {
-    right: 0;
-    @include setShadow(calc($shadow-medium * -1) $shadow-medium $shadow-blur $shadow-color);
+
+  &.is-sticky {
+    position: sticky;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }

@@ -1,0 +1,84 @@
+@import "./lyc-global.scss";
+
+.lyc-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  left: 0;
+  top: 0;
+  display: none;
+  opacity: 0;
+  @include setMultipleTransitions(transform 0.2s ease-in-out, opacity 0.2s ease);
+  &.is-fit-container {
+    position: absolute;
+  }
+  &.is-open {
+    display: block;
+    @include setFlex($jc: center, $ai: center);
+  }
+  &.is-direction-none {
+    transform: translate(0);
+    & > .lyc-modal__content {
+      transform: scale(0.95);
+    }
+  }
+  &.is-direction-up {
+    transform: translate(0, $modal-offset);
+    & > .lyc-modal__content {
+      transform: translate(0, $modal-offset) scale(0.95);
+    }
+  }
+  &.is-direction-left {
+    transform: translate($modal-offset, 0);
+    & > .lyc-modal__content {
+      transform: translate($modal-offset, 0) scale(0.95);
+    }
+  }
+  &.is-direction-right {
+    transform: translate(calc(0px - $modal-offset), 0);
+    & > .lyc-modal__content {
+      transform: translate(calc(0px - $modal-offset), 0) scale(0.95);
+    }
+  }
+  &.is-direction-down {
+    transform: translate(0, calc(0px - $modal-offset));
+    & > .lyc-modal__content {
+      transform: translate(0, calc(0px - $modal-offset)) scale(0.95);
+    }
+  }
+  &.is-display {
+    opacity: 1;
+    transform: translate(0, 0);
+    & > .lyc-modal__content {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: $modal-bg-color;
+    &.is-hide {
+      display: none;
+    }
+  }
+  &__content {
+    position: relative;
+    @include setTransition(transform 0.2s ease-in-out);
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    margin: 0 $modal-margin-left-right;
+  }
+  &__pad {
+    width: 100%;
+    height: $modal-margin-top-bottom;
+    background-color: $color-transparent;
+  }
+}

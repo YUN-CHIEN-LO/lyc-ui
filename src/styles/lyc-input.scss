@@ -1,0 +1,236 @@
+@import "./lyc-global.scss";
+
+@mixin setInputColor($color,
+  $borderColor,
+  $textColor,
+  $hoverBorderColor,
+  $focusBorderColor,
+  $focusColor,
+  $disabledBorderColor,
+  $disabledColor,
+  $fixTextColor) {
+  background-color: $color;
+  border-color: $borderColor;
+
+  & * {
+    color: $textColor;
+  }
+
+  &:hover {
+
+    &:not(.is-disabled),
+    &:not(.is-focus) {
+      border-color: $hoverBorderColor;
+    }
+  }
+
+  &.is-focus {
+    border-color: $focusBorderColor;
+    background-color: $focusColor;
+  }
+
+  &.is-disabled {
+    border-color: $disabledBorderColor;
+    background-color: $disabledColor;
+  }
+
+  &>.lyc-input__fix {
+    color: $fixTextColor;
+  }
+}
+
+.lyc-input {
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border: solid;
+  overflow: hidden;
+  box-sizing: border-box;
+  @include setTransition(border-color 0.2s ease-in-out);
+  margin-left: 4px;
+  margin-bottom: 4px;
+  @include setFlex($ai: center, $fw: none);
+  display: inline-flex;
+
+  & input {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    padding: 4px 8px;
+    background-color: $color-transparent;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  &__prefix {
+    padding-left: 8px;
+  }
+
+  &__suffix {
+    padding-right: 8px;
+  }
+
+  &__fix {
+    flex-shrink: 0;
+  }
+
+  &__clear {
+    flex-shrink: 0;
+    margin-right: 8px;
+    @include setFlex();
+
+    &>.lyc-button.is-small {
+      border-radius: 100%;
+    }
+  }
+
+  &.is-alone {
+    margin: 0;
+  }
+
+  &.is-full {
+    width: 100%;
+
+    & input {
+      flex: 1;
+    }
+  }
+
+  &.is-small {
+    border-width: $base-small-border-width;
+    border-radius: $base-small-radius;
+    height: $base-small-height;
+
+    & * {
+      font-size: $base-small-font-size;
+    }
+
+    &>.lyc-input__clear>.lyc-button.is-small {
+      transform: scale(0.7);
+    }
+  }
+
+  &.is-medium {
+    border-width: $base-medium-border-width;
+    border-radius: $base-medium-radius;
+    height: $base-medium-height;
+
+    & * {
+      font-size: $base-medium-font-size;
+    }
+
+    &>.lyc-input__clear>.lyc-button.is-small {
+      transform: scale(0.8);
+    }
+  }
+
+  &.is-large {
+    border-width: $base-large-border-width;
+    border-radius: $base-large-radius;
+    height: $base-large-height;
+
+    & * {
+      font-size: $base-large-font-size;
+    }
+
+    &>.lyc-input__clear>.lyc-button.is-small {
+      transform: scale(1);
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+
+    & * {
+      cursor: not-allowed;
+    }
+  }
+
+  &.is-default {
+    @include setInputColor($color: $input-default-color,
+      $borderColor: $input-default-border-color,
+      $textColor: $input-default-text-color,
+      $hoverBorderColor: $input-default-hover-border-color,
+      $focusBorderColor: $input-default-focus-border-color,
+      $focusColor: $input-default-focus-color,
+      $disabledBorderColor: $input-default-disabled-border-color,
+      $disabledColor: $input-default-disabled-color,
+      $fixTextColor: $input-default-fix-color);
+  }
+
+  &.is-primary {
+    @include setInputColor($color: $input-primary-color,
+      $borderColor: $input-primary-border-color,
+      $textColor: $input-primary-text-color,
+      $hoverBorderColor: $input-primary-hover-border-color,
+      $focusBorderColor: $input-primary-focus-border-color,
+      $focusColor: $input-primary-focus-color,
+      $disabledBorderColor: $input-primary-disabled-border-color,
+      $disabledColor: $input-primary-disabled-color,
+      $fixTextColor: $input-primary-fix-color);
+  }
+
+  &.is-secondary {
+    @include setInputColor($color: $input-secondary-color,
+      $borderColor: $input-secondary-border-color,
+      $textColor: $input-secondary-text-color,
+      $hoverBorderColor: $input-secondary-hover-border-color,
+      $focusBorderColor: $input-secondary-focus-border-color,
+      $focusColor: $input-secondary-focus-color,
+      $disabledBorderColor: $input-secondary-disabled-border-color,
+      $disabledColor: $input-secondary-disabled-color,
+      $fixTextColor: $input-secondary-fix-color);
+  }
+
+  &.is-success {
+    @include setInputColor($color: $input-success-color,
+      $borderColor: $input-success-border-color,
+      $textColor: $input-success-text-color,
+      $hoverBorderColor: $input-success-hover-border-color,
+      $focusBorderColor: $input-success-focus-border-color,
+      $focusColor: $input-success-focus-color,
+      $disabledBorderColor: $input-success-disabled-border-color,
+      $disabledColor: $input-success-disabled-color,
+      $fixTextColor: $input-success-fix-color);
+  }
+
+  &.is-danger {
+    @include setInputColor($color: $input-danger-color,
+      $borderColor: $input-danger-border-color,
+      $textColor: $input-danger-text-color,
+      $hoverBorderColor: $input-danger-hover-border-color,
+      $focusBorderColor: $input-danger-focus-border-color,
+      $focusColor: $input-danger-focus-color,
+      $disabledBorderColor: $input-danger-disabled-border-color,
+      $disabledColor: $input-danger-disabled-color,
+      $fixTextColor: $input-danger-fix-color);
+  }
+
+  &.is-warning {
+    @include setInputColor($color: $input-warning-color,
+      $borderColor: $input-warning-border-color,
+      $textColor: $input-warning-text-color,
+      $hoverBorderColor: $input-warning-hover-border-color,
+      $focusBorderColor: $input-warning-focus-border-color,
+      $focusColor: $input-warning-focus-color,
+      $disabledBorderColor: $input-warning-disabled-border-color,
+      $disabledColor: $input-warning-disabled-color,
+      $fixTextColor: $input-warning-fix-color);
+  }
+
+  &.is-dark {
+    @include setInputColor($color: $input-dark-color,
+      $borderColor: $input-dark-border-color,
+      $textColor: $input-dark-text-color,
+      $hoverBorderColor: $input-dark-hover-border-color,
+      $focusBorderColor: $input-dark-focus-border-color,
+      $focusColor: $input-dark-focus-color,
+      $disabledBorderColor: $input-dark-disabled-border-color,
+      $disabledColor: $input-dark-disabled-color,
+      $fixTextColor: $input-dark-fix-color);
+  }
+
+
+}

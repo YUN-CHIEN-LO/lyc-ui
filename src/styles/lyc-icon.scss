@@ -1,123 +1,419 @@
 @import "./lyc-global.scss";
 
+
+
 .lyc-icon {
   position: relative;
-  @extend .has-transition;
+  @include setTransition();
+
   & .lyc-icon__strike {
-    @extend .has-transition;
+    @include setTransition();
     position: absolute;
   }
+
   &.is-small {
-    width: 16px;
-    height: 16px;
+    width: $icon-small-size;
+    height:$icon-small-size;
+
     & .lyc-icon__strike {
-      width: 14px;
+      width: $icon-small-size;
       height: 2px;
       border-radius: 2px;
     }
   }
+
   &.is-medium {
-    width: 24px;
-    height: 24px;
+    width: $icon-medium-size;
+    height: $icon-medium-size;
+
     & .lyc-icon__strike {
-      width: 18px;
-      height: 2px;
+      width: $icon-medium-size;
+      height: 3px;
       border-radius: 2px;
     }
   }
+
   &.is-large {
-    width: 36px;
-    height: 36px;
+    width: $icon-large-size;
+    height: $icon-large-size;
+
     & .lyc-icon__strike {
-      width: 24px;
-      height: 3px;
+      width: $icon-large-size;
+      height: 4px;
       border-radius: 3px;
     }
   }
+
+  &.is-default>.lyc-icon__strike {
+    background-color: $icon-default-color;
+  }
+
+  &.is-dark>.lyc-icon__strike {
+    background-color: $icon-default-color;
+  }
+
+  &.is-light>.lyc-icon__strike {
+    background-color: $icon-light-color;
+  }
+
+  &.is-primary>.lyc-icon__strike {
+    background-color: $icon-primary-color;
+  }
+
+  &.is-secondary>.lyc-icon__strike {
+    background-color: $icon-secondary-color;
+  }
+
+  &.is-success>.lyc-icon__strike {
+    background-color: $icon-success-color;
+  }
+
+  &.is-warning>.lyc-icon__strike {
+    background-color: $icon-warning-color;
+  }
+
+  &.is-danger>.lyc-icon__strike {
+    background-color: $icon-danger-color;
+  }
+
+  &.is-border-type {
+    & .lyc-icon__strike {
+      background-color: $color-transparent;
+    }
+
+    &.is-small>.lyc-icon__strike {
+      border-width: 2px;
+    }
+
+    &.is-medium>.lyc-icon__strike {
+      border-width: 3px;
+    }
+
+    &.is-large>.lyc-icon__strike {
+      border-width: 4px;
+    }
+
+    &.is-default>.lyc-icon__strike {
+      border-color: $icon-default-color;
+    }
+
+    &.is-dark>.lyc-icon__strike {
+      border-color: $icon-default-color;
+    }
+
+    &.is-light>.lyc-icon__strike {
+      border-color: $icon-light-color;
+    }
+
+    &.is-primary>.lyc-icon__strike {
+      border-color: $icon-primary-color;
+    }
+
+    &.is-secondary>.lyc-icon__strike {
+      border-color: $icon-secondary-color;
+    }
+
+    &.is-success>.lyc-icon__strike {
+      border-color: $icon-success-color;
+    }
+
+    &.is-warning>.lyc-icon__strike {
+      border-color: $icon-warning-color;
+    }
+
+    &.is-danger>.lyc-icon__strike {
+      border-color: $icon-danger-color;
+    }
+  }
+
   &.is-cross {
     & .lyc-icon__strike {
       top: 50%;
       left: 50%;
+
       &--1 {
         transform: translate(-50%, -50%) rotate(45deg);
       }
+
       &--2 {
         transform: translate(-50%, -50%) rotate(-45deg);
       }
+
+      &--3 {
+        display: none;
+      }
     }
+
     &:hover {
       transform: rotate(90deg);
     }
   }
+
   &.is-hamburger {
     & .lyc-icon__strike {
       left: 50%;
       transform: translate(-50%, -50%);
+
       &--1 {
-        top: 25%;
+        top: 15%;
       }
+
       &--2 {
         top: 50%;
       }
+
       &--3 {
-        top: 75%;
+        top: 85%;
       }
     }
+
     &:not(.is-open):hover {
       & .lyc-icon__strike {
         &--1 {
           top: 50%;
         }
+
         &--2 {
           top: 75%;
         }
+
         &--3 {
           top: 25%;
         }
       }
     }
+
     &.is-open {
       & .lyc-icon__strike {
         &--1 {
           top: 50%;
           transform: translate(-50%, -50%) rotate(45deg);
         }
+
         &--2 {
           top: 50%;
           transform: translate(-50%, -50%) rotate(-45deg);
         }
+
         &--3 {
           top: 50%;
           transform: translate(-50%, -50%) rotate(45deg);
         }
       }
+
       &:hover {
         transform: rotate(90deg);
       }
     }
   }
-  &.is-default > .lyc-icon__strike {
-    background-color: $color-dark;
+
+  &.is-toggle {
+    & .lyc-icon__strike {
+      top: 55%;
+      left: 55%;
+
+      &--1 {
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        background-color: $color-transparent;
+      }
+
+      &--2,
+      &--3 {
+        display: none;
+      }
+    }
+
+    &.is-small>.lyc-icon__strike {
+      border-width: 6px 0 6px 8px;
+    }
+
+    &.is-medium>.lyc-icon__strike {
+      border-width: 10px 0 10px 16px;
+    }
+
+    &.is-large>.lyc-icon__strike {
+      border-width: 16px 0 16px 28px;
+    }
+
+    &.is-default>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-default-color;
+    }
+
+    &.is-dark>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-default-color;
+    }
+
+    &.is-light>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-light-color;
+    }
+
+    &.is-primary>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-primary-color;
+    }
+
+    &.is-secondary>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-secondary-color;
+    }
+
+    &.is-success>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-success-color;
+    }
+
+    &.is-warning>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-warning-color;
+    }
+
+    &.is-danger>.lyc-icon__strike {
+      border-color: $color-transparent $color-transparent $color-transparent $icon-danger-color;
+    }
+
+    &:hover {
+      &>.lyc-icon__strike {
+        transform: translate(-50%, -50%) scale(80%, 110%);
+      }
+    }
   }
-  &.is-dark > .lyc-icon__strike {
-    background-color: $color-dark;
+
+  &.is-check {
+    & .lyc-icon__strike {
+      &--1 {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        left: 50%;
+        top: 40%;
+        width: 75%;
+        height: 40%;
+
+        border: solid 3px $base-font-color;
+        border-top: none;
+        border-right: none;
+        border-radius: 0;
+      }
+
+      &--2,
+      &--3 {
+        display: none;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1) rotate(6deg);
+    }
   }
-  &.is-light > .lyc-icon__strike {
-    background-color: $color-light;
+
+  &.is-dot {
+    & .lyc-icon__strike {
+      &--1 {
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 75%;
+        height: 75%;
+        border-radius: 100%;
+      }
+
+      &--2,
+      &--3 {
+        display: none;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
-  &.is-primary > .lyc-icon__strike {
-    background-color: $color-primary;
+
+  &.is-plus {
+    & .lyc-icon__strike {
+      top: 50%;
+      left: 50%;
+
+      &--1 {
+        transform: translate(-50%, -50%);
+      }
+
+      &--2 {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      &--3 {
+        display: none;
+      }
+    }
+
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
-  &.is-secondary > .lyc-icon__strike {
-    background-color: $color-secondary;
-  }
-  &.is-success > .lyc-icon__strike {
-    background-color: $color-success;
-  }
-  &.is-warning > .lyc-icon__strike {
-    background-color: $color-warning;
-  }
-  &.is-danger > .lyc-icon__strike {
-    background-color: $color-danger;
+
+  &.is-arrow {
+    & .lyc-icon__strike {
+      &--1 {
+        transform: translate(-50%, -50%) rotate(45deg);
+        left: 50%;
+        top: 50%;
+        width: 60%;
+        height: 60%;
+        border: solid 3px $icon-default-color;
+        border-top: none;
+        border-right: none;
+        border-radius: 0;
+      }
+
+      &--2 {
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 0;
+        border-bottom: solid 3px $icon-default-color;
+      }
+
+      &--3 {
+        display: none;
+      }
+    }
+
+    &:hover {
+      & .lyc-icon__strike {
+        &--1 {
+          left: 35%;
+        }
+
+        &--2 {
+          width: 110%;
+        }
+      }
+    }
+
+    &-up {
+      transform: rotate(90deg);
+    }
+
+    &-up-left {
+      transform: rotate(45deg);
+    }
+
+    &-up-right {
+      transform: rotate(135deg);
+    }
+
+    &-down {
+      transform: rotate(-90deg);
+    }
+
+    &-down-right {
+      transform: rotate(-135deg);
+    }
+
+    &-down-left {
+      transform: rotate(-45deg);
+    }
+
+    &-left {
+      transform: rotate(180deg);
+    }
   }
 }

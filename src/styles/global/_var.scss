@@ -1,26 +1,499 @@
-// === Color Palettes ===
+// === Color Board ===
+$color-transparent: transparent !default;
 $color-white: #ffffff !default;
-$color-black: #000000 !default;
-$color-light: #f6f1f1 !default;
-$color-dark: #2e3840 !default;
-$color-primary: #a2c3f9 !default;
-$color-secondary: #d7c8f2 !default;
-$color-danger: #fc7979 !default;
-$color-success: #88c484 !default;
-$color-warning: #f7cf7a !default;
-$primary-light: mix($color-primary, $color-white, 90%) !default;
-$primary-dark: mix($color-primary, $color-black, 90%) !default;
-// === Basic Style ===
-$padding-horizontal: 8px !default;
-$padding-vertical: 16px !default;
-$border-radius: 8px !default;
-$border-radius-large: 16px !default;
+$color-black: #0f0f0f !default;
+// red
+$color-red: #ec4b3f !default;
+$color-red-light: #FF9F9F !default;
+$color-red-dark: #850000 !default;
+// yellow
+$color-yellow: #FFBE0F !default;
+$color-yellow-light: #F4EEA9 !default;
+$color-yellow-dark: #dc8822 !default;
+// green
+$color-green: #81B214 !default;
+$color-green-light: #B3E283 !default;
+$color-green-dark: #346751 !default;
+// blue
+$color-blue: #6DA9E4 !default;
+$color-blue-light: #d2edf9 !default;
+$color-blue-dark: #145374 !default;
+// purple
+$color-purple: #BA90C6 !default;
+$color-purple-light: #E5D1FA !default;
+$color-purple-dark: #674188 !default;
 
-$base-font-size: 16px;
+// gray scale
+$color-gray: mix($color-black, $color-white, 40%) !default;
+$color-gray-light: mix($color-black, $color-white, 5%) !default;
+$color-gray-light-1: mix($color-black, $color-white, 10%) !default;
+$color-gray-light-2: mix($color-black, $color-white, 20%) !default;
+$color-gray-light-3: mix($color-black, $color-white, 30%) !default;
+$color-gray-dark-1: mix($color-black, $color-white, 50%) !default;
+$color-gray-dark-2: mix($color-black, $color-white, 60%) !default;
+$color-gray-dark-3: mix($color-black, $color-white, 70%) !default;
+$color-gray-dark: mix($color-black, $color-white, 80%) !default;
+// primary scale
+$color-primary: $color-blue !default;
+$color-primary-light: $color-blue-light !default;
+$color-primary-dark: $color-blue-dark !default;
+$color-primary-light-1: mix($color-primary, $color-primary-light, 30%) !default;
+$color-primary-light-2: mix($color-primary, $color-primary-light, 50%) !default;
+$color-primary-light-3: mix($color-primary, $color-primary-light, 70%) !default;
+$color-primary-dark-1: mix($color-primary, $color-primary-dark, 70%) !default;
+$color-primary-dark-2: mix($color-primary, $color-primary-dark, 50%) !default;
+$color-primary-dark-3: mix($color-primary, $color-primary-dark, 30%) !default;
+// secondary scale
+$color-secondary: $color-purple !default;
+$color-secondary-light: $color-purple-light !default;
+$color-secondary-dark: $color-purple-dark !default;
+$color-secondary-light-1: mix($color-secondary, $color-secondary-light, 30%) !default;
+$color-secondary-light-2: mix($color-secondary, $color-secondary-light, 50%) !default;
+$color-secondary-light-3: mix($color-secondary, $color-secondary-light, 70%) !default;
+$color-secondary-dark-1: mix($color-secondary, $color-secondary-dark, 70%) !default;
+$color-secondary-dark-2: mix($color-secondary, $color-secondary-dark, 50%) !default;
+$color-secondary-dark-3: mix($color-secondary, $color-secondary-dark, 30%) !default;
+// danger scale
+$color-danger: $color-red !default;
+$color-danger-light: $color-red-light !default;
+$color-danger-dark: $color-red-dark !default;
+$color-danger-light-1: mix($color-danger, $color-danger-light, 30%) !default;
+$color-danger-light-2: mix($color-danger, $color-danger-light, 50%) !default;
+$color-danger-light-3: mix($color-danger, $color-danger-light, 70%) !default;
+$color-danger-dark-1: mix($color-danger, $color-danger-dark, 70%) !default;
+$color-danger-dark-2: mix($color-danger, $color-danger-dark, 50%) !default;
+$color-danger-dark-3: mix($color-danger, $color-danger-dark, 30%) !default;
+// warning scale
+$color-warning: $color-yellow !default;
+$color-warning-light: $color-yellow-light !default;
+$color-warning-dark: $color-yellow-dark !default;
+$color-warning-light-1: mix($color-warning, $color-warning-light, 30%) !default;
+$color-warning-light-2: mix($color-warning, $color-warning-light, 50%) !default;
+$color-warning-light-3: mix($color-warning, $color-warning-light, 70%) !default;
+$color-warning-dark-1: mix($color-warning, $color-warning-dark, 70%) !default;
+$color-warning-dark-2: mix($color-warning, $color-warning-dark, 50%) !default;
+$color-warning-dark-3: mix($color-warning, $color-warning-dark, 30%) !default;
+// success scale
+$color-success: $color-green !default;
+$color-success-light: $color-green-light !default;
+$color-success-dark: $color-green-dark !default;
+$color-success-light-1: mix($color-success, $color-success-light, 30%) !default;
+$color-success-light-2: mix($color-success, $color-success-light, 50%) !default;
+$color-success-light-3: mix($color-success, $color-success-light, 70%) !default;
+$color-success-dark-1: mix($color-success, $color-success-dark, 70%) !default;
+$color-success-dark-2: mix($color-success, $color-success-dark, 50%) !default;
+$color-success-dark-3: mix($color-success, $color-success-dark, 30%) !default;
 
-$base-text-color: $color-dark;
 
-$shadow-color: rgba($color-dark, 0.3) !default;
-$shadow-small: 4px !default;
-$shadow-medium: 8px !default;
-$shadow-blur: 0px !default;
+// base
+$base-small-height: 24px !default;
+$base-small-font-size: 12px !default;
+$base-small-padding-vertical: 3px !default;
+$base-small-padding-horizontal: 6px !default;
+$base-small-radius: 8px !default;
+$base-small-border-width: 1px !default;
+
+$base-medium-height: 36px !default;
+$base-medium-font-size: 16px !default;
+$base-medium-padding-vertical: 6px !default;
+$base-medium-padding-horizontal: 12px !default;
+$base-medium-radius: 12px !default;
+$base-medium-border-width: 2px !default;
+
+$base-large-height: 52px !default;
+$base-large-font-size: 24px !default;
+$base-large-padding-vertical: 8px !default;
+$base-large-padding-horizontal: 24px !default;
+$base-large-radius: 18px !default;
+$base-large-border-width: 3px !default;
+
+$base-font-size: $base-medium-font-size !default;
+$base-font-color: $color-black !default;
+$base-line-height: 1.5 !default;
+$base-hover-bg-color: rgba($color-gray-light, 0.2) !default;
+$base-padding: 8px 16px !default;
+$base-shadow-color: rgba($color-black, 0.3) !default;
+$base-shadow-small: 4px !default;
+$base-shadow-medium: 8px !default;
+$base-shadow-blur: 0px !default;
+
+// article
+$article-padding: $base-padding !default;
+
+// icon
+$icon-default-color: $base-font-color !default;
+$icon-primary-color: $color-primary !default;
+$icon-secondary-color: $color-secondary !default;
+$icon-success-color: $color-success !default;
+$icon-warning-color: $color-warning !default;
+$icon-danger-color: $color-danger !default;
+$icon-light-color: $color-white !default;
+$icon-dark-color: $color-black !default;
+$icon-small-size: calc($base-small-height - $base-small-padding-vertical - $base-small-padding-vertical) !default;
+$icon-medium-size: calc($base-medium-height - $base-medium-padding-vertical - $base-medium-padding-vertical) !default;
+$icon-large-size: calc($base-large-height - $base-large-padding-vertical - $base-large-padding-vertical) !default;
+
+// button
+$button-default-color: $color-transparent !default;
+$button-default-text-color: $base-font-color !default;
+$button-default-outline-color: $base-font-color !default;
+$button-default-hover-color: rgba($base-font-color, 0.05) !default;
+$button-default-active-color: rgba($base-font-color, 0.05) !default;
+$button-default-disabled-color: rgba($base-font-color, 0.05) !default;
+$button-default-disabled-outline-color: rgba($base-font-color, 0.3) !default;
+$button-default-disabled-text-color: rgba($base-font-color, 0.3) !default;
+
+$button-dark-color: $color-black !default;
+$button-dark-text-color: $color-white !default;
+$button-dark-outline-color: $color-gray-dark-3 !default;
+$button-dark-hover-color: $color-gray-dark-2 !default;
+$button-dark-active-color: $color-gray-dark-1 !default;
+$button-dark-disabled-color: $color-gray-dark-1 !default;
+$button-dark-disabled-outline-color: $color-gray-dark-3;
+$button-dark-disabled-text-color: $color-white !default;
+
+$button-primary-color: $color-primary !default;
+$button-primary-text-color: $color-white !default;
+$button-primary-outline-color: $color-primary !default;
+$button-primary-hover-color: $color-primary-light-3 !default;
+$button-primary-active-color: $color-primary-light-1 !default;
+$button-primary-disabled-color: $color-primary-light-1 !default;
+$button-primary-disabled-outline-color: $color-primary-light-1;
+$button-primary-disabled-text-color: $color-white !default;
+
+$button-secondary-color: $color-secondary !default;
+$button-secondary-text-color: $color-white !default;
+$button-secondary-outline-color: $color-secondary !default;
+$button-secondary-hover-color: $color-secondary-light-3 !default;
+$button-secondary-active-color: $color-secondary-light-1 !default;
+$button-secondary-disabled-color: $color-secondary-light-1 !default;
+$button-secondary-disabled-outline-color: $color-secondary-light-1 !default;
+$button-secondary-disabled-text-color: $color-white !default;
+
+$button-success-color: $color-success !default;
+$button-success-text-color: $color-white !default;
+$button-success-outline-color: $color-success !default;
+$button-success-hover-color: $color-success-light-3 !default;
+$button-success-active-color: $color-success-light-1 !default;
+$button-success-disabled-color: $color-success-light-1 !default;
+$button-success-disabled-outline-color: $color-success-light-1 !default;
+$button-success-disabled-text-color: $color-white !default;
+
+$button-warning-color: $color-warning !default;
+$button-warning-text-color: $color-white !default;
+$button-warning-outline-color: $color-warning !default;
+$button-warning-hover-color: $color-warning-light-3 !default;
+$button-warning-active-color: $color-warning-light-1 !default;
+$button-warning-disabled-color: $color-warning-light-1 !default;
+$button-warning-disabled-outline-color: $color-warning-light-1 !default;
+$button-warning-disabled-text-color: $color-white !default;
+
+$button-danger-color: $color-danger !default;
+$button-danger-text-color: $color-white !default;
+$button-danger-outline-color: $color-danger !default;
+$button-danger-hover-color: $color-danger-light-3 !default;
+$button-danger-active-color: $color-danger-light-1 !default;
+$button-danger-disabled-color: $color-danger-light-1;
+$button-danger-disabled-outline-color: $color-danger-light-1;
+$button-danger-disabled-text-color: $color-white !default;
+
+
+
+// link
+$link-default-color: rgba($base-font-color, 0.05) !default;
+$link-default-text-color: $base-font-color !default;
+$link-default-focus-color: rgba($base-font-color, 0.03) !default;
+$link-default-hover-text-color: $base-font-color !default;
+$link-default-disabled-color: rgba($base-font-color, 0.05) !default;
+$link-default-disabled-text-color: rgba($base-font-color, 0.5) !default;
+$link-default-disabled-hover-text-color: rgba($base-font-color, 0.5) !default;
+
+$link-dark-color: $color-black !default;
+$link-dark-text-color: $color-black !default;
+$link-dark-focus-color: $color-gray-dark !default;
+$link-dark-hover-text-color: $color-white !default;
+$link-dark-disabled-color: $color-gray-dark-3 !default;
+$link-dark-disabled-text-color: $color-gray-dark-3 !default;
+$link-dark-disabled-hover-text-color: $color-white !default;
+
+$link-primary-color: $color-primary !default;
+$link-primary-text-color: $color-primary !default;
+$link-primary-focus-color: $color-primary-light-3 !default;
+$link-primary-hover-text-color: $color-white !default;
+$link-primary-disabled-color: $color-primary-light-1 !default;
+$link-primary-disabled-text-color: $color-primary-light-1 !default;
+$link-primary-disabled-hover-text-color: $color-white !default;
+
+$link-secondary-color: $color-secondary !default;
+$link-secondary-text-color: $color-secondary !default;
+$link-secondary-focus-color: $color-secondary-light-3 !default;
+$link-secondary-hover-text-color: $color-white !default;
+$link-secondary-disabled-color: $color-secondary-light-1 !default;
+$link-secondary-disabled-text-color: $color-secondary-light-1 !default;
+$link-secondary-disabled-hover-text-color: $color-white !default;
+
+$link-success-color: $color-success !default;
+$link-success-text-color: $color-success !default;
+$link-success-focus-color: $color-success-light-3 !default;
+$link-success-hover-text-color: $color-white !default;
+$link-success-disabled-color: $color-success-light-1 !default;
+$link-success-disabled-text-color: $color-success-light-1 !default;
+$link-success-disabled-hover-text-color: $color-white !default;
+
+$link-warning-color: $color-warning !default;
+$link-warning-text-color: $color-warning !default;
+$link-warning-focus-color: $color-warning-light-3 !default;
+$link-warning-hover-text-color: $color-white !default;
+$link-warning-disabled-color: $color-warning-light-1 !default;
+$link-warning-disabled-text-color: $color-warning-light-1 !default;
+$link-warning-disabled-hover-text-color: $color-white !default;
+
+$link-danger-color: $color-danger !default;
+$link-danger-text-color: $color-danger !default;
+$link-danger-focus-color: $color-danger-light-3 !default;
+$link-danger-hover-text-color: $color-white !default;
+$link-danger-disabled-color: $color-danger-light-1 !default;
+$link-danger-disabled-text-color: $color-danger-light-1 !default;
+$link-danger-disabled-hover-text-color: $color-white !default;
+
+$default-highlight-color: mix($base-font-color, $color-white, 50%) !default;
+$dark-highlight-color: $color-gray !default;
+$primary-highlight-color: $color-primary-light-1 !default;
+$secondary-highlight-color: $color-secondary-light-1 !default;
+$success-highlight-color: $color-success-light-1 !default;
+$warning-highlight-color: $color-warning-light-1 !default;
+$danger-highlight-color: $color-danger-light-1 !default;
+
+// header
+$header-default-color: $base-font-color !default;
+$header-default-highlight-color: $default-highlight-color !default;
+
+$header-dark-color: $color-black !default;
+$header-dark-highlight-color: $dark-highlight-color !default;
+
+$header-primary-color: $color-primary !default;
+$header-primary-highlight-color: $primary-highlight-color !default;
+
+$header-secondary-color: $color-secondary !default;
+$header-secondary-highlight-color: $secondary-highlight-color !default;
+
+$header-success-color: $color-success !default;
+$header-success-highlight-color: $success-highlight-color !default;
+
+$header-warning-color: $color-warning !default;
+$header-warning-highlight-color: $warning-highlight-color !default;
+
+$header-danger-color: $color-danger !default;
+$header-danger-highlight-color: $danger-highlight-color !default;
+
+// paragraph
+$paragraph-margin: 8px 0px !default;
+$paragraph-padding: $base-padding !default;
+$paragraph-quote-border-width: 4px !default;
+$paragraph-block-border-width: 2px !default;
+$paragraph-block-border-radius: 16px !default;
+$paragraph-block-padding: 8px 16px !default;
+$paragraph-footnote-font-size: $base-small-font-size !default;
+
+$paragraph-default-color: $base-font-color;
+$paragraph-default-text-color: $base-font-color;
+$paragraph-default-block-color: $color-transparent;
+
+$paragraph-dark-color: $color-black;
+$paragraph-dark-text-color: $base-font-color;
+$paragraph-dark-block-color: $color-gray-light-2;
+
+$paragraph-primary-color: $color-primary;
+$paragraph-primary-text-color: $base-font-color;
+$paragraph-primary-block-color: $color-primary-light;
+
+$paragraph-secondary-color: $color-secondary;
+$paragraph-secondary-text-color: $base-font-color;
+$paragraph-secondary-block-color: $color-secondary-light;
+
+$paragraph-success-color: $color-success;
+$paragraph-success-text-color: $base-font-color;
+$paragraph-success-block-color: $color-success-light;
+
+$paragraph-warning-color: $color-warning;
+$paragraph-warning-text-color: $base-font-color;
+$paragraph-warning-block-color: $color-warning-light;
+
+$paragraph-danger-color: $color-danger;
+$paragraph-danger-text-color: $base-font-color;
+$paragraph-danger-block-color: $color-danger-light;
+
+// card
+$card-title-height: $base-medium-height !default;
+$card-padding: $base-padding !default;
+$card-radius: $base-medium-radius !default;
+$card-border-width: $base-medium-border-width !default;
+
+$card-default-color: $color-transparent !default;
+$card-default-text-color: $base-font-color !default;
+$card-default-full-color: mix($base-font-color, $color-white, 5%) !default;
+$card-default-full-text-color: $base-font-color !default;
+
+$card-dark-color: $color-black !default;
+$card-dark-text-color: $base-font-color !default;
+$card-dark-full-color: $color-black !default;
+$card-dark-full-text-color: $color-white !default;
+
+$card-primary-color: $color-primary !default;
+$card-primary-text-color: $base-font-color !default;
+$card-primary-full-color: $color-primary !default;
+$card-primary-full-text-color: $color-white !default;
+
+$card-secondary-color: $color-secondary !default;
+$card-secondary-text-color: $base-font-color !default;
+$card-secondary-full-color: $color-secondary !default;
+$card-secondary-full-text-color: $color-white !default;
+
+$card-success-color: $color-success !default;
+$card-success-text-color: $base-font-color !default;
+$card-success-full-color: $color-success !default;
+$card-success-full-text-color: $color-white !default;
+
+$card-warning-color: $color-warning !default;
+$card-warning-text-color: $base-font-color !default;
+$card-warning-full-color: $color-warning !default;
+$card-warning-full-text-color: $base-font-color !default;
+
+$card-danger-color: $color-danger !default;
+$card-danger-text-color: $base-font-color !default;
+$card-danger-full-color: $color-danger !default;
+$card-danger-full-text-color: $color-white !default;
+
+
+$small-height: 28px !default;
+$medium-height: 36px !default;
+$large-height: 64px !default;
+
+// === Font Stype ====
+$fontsize-h1: 48px !default;
+$fontsize-h2: 36px !default;
+$fontsize-h3: 28px !default;
+$fontsize-h4: 24px !default;
+$fontsize-h5: 20px !default;
+$fontsize-h6: 18px !default;
+
+
+// input
+$input-default-color: $color-transparent !default;
+$input-default-border-color: rgba($base-font-color, 0.1) !default;
+$input-default-hover-border-color: rgba($base-font-color, 0.3) !default;
+$input-default-text-color: $base-font-color !default;
+$input-default-focus-color: rgba($base-font-color, 0.03) !default;
+$input-default-focus-border-color: rgba($base-font-color, 0.5) !default;
+$input-default-disabled-border-color: rgba($base-font-color, 0.1) !default;
+$input-default-disabled-color: rgba($base-font-color, 0.05) !default;
+$input-default-fix-color: rgba($base-font-color, 0.5) !default;
+
+$input-dark-color: $color-gray-dark-3 !default;
+$input-dark-border-color: $color-gray-dark !default;
+$input-dark-hover-border-color: $color-black !default;
+$input-dark-text-color: $color-white !default;
+$input-dark-focus-color: rgba($color-gray-dark, 0.5) !default;
+$input-dark-focus-border-color: $color-black !default;
+$input-dark-disabled-border-color: $color-gray-dark-1 !default;
+$input-dark-disabled-color: $color-gray-dark !default;
+$input-dark-fix-color: $color-white !default;
+
+$input-primary-color: $color-transparent !default;
+$input-primary-border-color: $color-primary-light-2 !default;
+$input-primary-hover-border-color: $color-primary-light-3 !default;
+$input-primary-text-color: $base-font-color !default;
+$input-primary-focus-color: rgba($color-primary-light, 0.5) !default;
+$input-primary-focus-border-color: $color-primary !default;
+$input-primary-disabled-border-color: $color-primary-light-1 !default;
+$input-primary-disabled-color: rgba($color-primary-light, 0.5) !default;
+$input-primary-fix-color: $color-primary-dark !default;
+
+$input-secondary-color: $color-transparent !default;
+$input-secondary-border-color: $color-secondary-light-2 !default;
+$input-secondary-hover-border-color: $color-secondary-light-3 !default;
+$input-secondary-text-color: $base-font-color !default;
+$input-secondary-focus-color: rgba($color-secondary-light, 0.5) !default;
+$input-secondary-focus-border-color: $color-secondary !default;
+$input-secondary-disabled-border-color: $color-secondary-light-1 !default;
+$input-secondary-disabled-color: rgba($color-secondary-light, 0.5) !default;
+$input-secondary-fix-color: $color-secondary-dark !default;
+
+$input-success-color: $color-transparent !default;
+$input-success-border-color: $color-success-light-2 !default;
+$input-success-hover-border-color: $color-success-light-3 !default;
+$input-success-text-color: $base-font-color !default;
+$input-success-focus-color: rgba($color-success-light, 0.5) !default;
+$input-success-focus-border-color: $color-success !default;
+$input-success-disabled-border-color: $color-success-light-1 !default;
+$input-success-disabled-color: rgba($color-success-light, 0.5) !default;
+$input-success-fix-color: $color-success-dark !default;
+
+$input-warning-color: $color-transparent !default;
+$input-warning-border-color: $color-warning-light-2 !default;
+$input-warning-hover-border-color: $color-warning-light-3 !default;
+$input-warning-text-color: $base-font-color !default;
+$input-warning-focus-color: rgba($color-warning-light, 0.5) !default;
+$input-warning-focus-border-color: $color-warning !default;
+$input-warning-disabled-border-color: $color-warning-light-1 !default;
+$input-warning-disabled-color: rgba($color-warning-light, 0.5) !default;
+$input-warning-fix-color: $color-warning-dark !default;
+
+$input-danger-color: $color-transparent !default;
+$input-danger-border-color: $color-danger-light-2 !default;
+$input-danger-hover-border-color: $color-danger-light-3 !default;
+$input-danger-text-color: $base-font-color !default;
+$input-danger-focus-color: rgba($color-danger-light, 0.5) !default;
+$input-danger-focus-border-color: $color-danger !default;
+$input-danger-disabled-border-color: $color-danger-light-1 !default;
+$input-danger-disabled-color: rgba($color-danger-light, 0.5) !default;
+$input-danger-fix-color: $color-danger-dark !default;
+
+
+// navbar
+$navbar-background-color: $color-white !default;
+$navbar-padding: $base-padding !default;
+
+// main
+$main-max-width: 960px !default;
+
+// table
+$table-border-color: rgba($color-gray-light, 0.5) !default;
+$table-hover-color: $base-hover-bg-color !default;
+$table-header-color: $color-white !default;
+
+// toggle
+$toggle-target-min-height: 36px !default;
+$toggle-border-color: $color-gray-light !default;
+$toggle-border-radius: 8px !default;
+$toggle-padding: 8px !default;
+$toggle-target-bg-color: $base-hover-bg-color !default;
+
+// checkbox
+$checkbox-border-color: $color-gray-light !default;
+$checkbox-icon-color: $base-font-color !default;
+
+// radio
+$radio-border-color: $color-gray-light !default;
+$radio-icon-color: $base-font-color !default;
+
+// timeline
+$timeline-padding: 16px !default;
+$timeline-border-color: $color-gray-light !default;
+$timeline-border-width: 1px !default;
+$timeline-border-style: solid !default;
+$timeline-border-margin: 16px !default;
+$timeline-dot-color: $color-primary !default;
+$timeline-content-min-size: 60px !default;
+
+
+// modal
+$modal-bg-color: rgba($color-black, 0.7) !default;
+$modal-offset: 64px !default;
+$modal-margin-top-bottom: 24px !default;
+$modal-margin-left-right: 16px !default;
+
+// dialog
+$dialog-bg-color: $color-white !default;
+$dialog-border-radius: 16px !default;
+$dialog-padding: 8px 16px !default;

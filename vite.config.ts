@@ -1,20 +1,25 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import path from "path";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { resolve, join, relative, extname } from "path";
 import glob from "glob";
 import { fileURLToPath } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    vueJsx(),
+  ],
   resolve: {
     alias: {
-      "@/": `${path.resolve(__dirname, "./src")}/`,
+      "@/": `${resolve(__dirname, "./src")}/`,
     },
+    extensions: [".ts", ".tsx", ".json"],
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "LycUi",
       formats: ["es"],
       fileName: (format, entryName) => {
@@ -23,7 +28,7 @@ export default defineConfig({
       },
     },
     minify: "terser",
-    outDir: path.join(__dirname, "dist/js"),
+    outDir: join(__dirname, "dist/js"),
     terserOptions: {
       compress: {
         defaults: false,
@@ -36,13 +41,14 @@ export default defineConfig({
     rollupOptions: {
       external: ["vue"],
       input: {
-        index: path.resolve(__dirname, "src/index.ts"),
+        index: resolve(__dirname, "src/index.ts"),
         ...Object.fromEntries(
           glob.sync("src/components/**/index.ts").map((file) => {
             return [
-              path
-                .relative("src/components/", file.slice(0, file.length - path.extname(file).length))
-                .replace("/index", ""),
+              relative(
+                "src/components/",
+                file.slice(0, file.length - extname(file).length)
+              ).replace("/index", ""),
               fileURLToPath(new URL(file, import.meta.url)),
             ];
           })

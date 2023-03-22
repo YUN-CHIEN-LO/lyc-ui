@@ -1,4 +1,4 @@
-import Component from "@/components/icon/LycIcon.vue";
+import Component from "@/components/icon/lyc-icon";
 import { App } from "vue";
 
 Component.install = (Vue: App) => {

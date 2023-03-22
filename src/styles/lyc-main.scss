@@ -2,4 +2,7 @@
 
 .lyc-main {
   @include setFlex($fw: nowrap);
+  width: 100%;
+  max-width: $main-max-width;
+  margin: 0px auto;
 }

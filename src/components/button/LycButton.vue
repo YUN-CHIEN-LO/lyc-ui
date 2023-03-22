@@ -1,61 +1,48 @@
 <template>
-  <div
-    :class="[
-      'lyc-button',
-      typeClass,
-      sizeClass,
-      { 'is-shadow': shadow, 'is-full': full, 'is-alone': alone },
-    ]"
+  <button
+    :class="{
+      'lyc-button': true,
+      [`is-${props.color}`]: true,
+      [`is-${props.size}`]: true,
+      'is-shadow': props.shadow,
+      'is-full': props.full,
+      'is-alone': props.alone,
+      'is-outline': props.outline,
+      'is-disabled': props.disabled,
+      'is-square': props.square,
+    }"
     @click="handleClick"
   >
-    <slot></slot>
-  </div>
+    <div class="lyc-button__label">
+      <slot></slot>
+    </div>
+  </button>
 </template>
 
-<script lang="ts">
-import { propTypes, propSizes } from "@/constants";
+<script lang="ts" functional>
 import { defineComponent } from "vue";
+export default defineComponent({ name: "LycButton" });
+</script>
 
-export default defineComponent({
-  name: "LycButton",
-  props: {
-    type: {
-      type: String,
-      default: propTypes.default,
-      validator(value: string) {
-        return Object.keys(propTypes).includes(value);
-      },
-    },
-    shadow: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: propSizes.medium,
-      validator(value: string) {
-        return Object.keys(propSizes).includes(value);
-      },
-    },
-    full: {
-      type: Boolean,
-      default: false,
-    },
-    alone: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ["on-click"],
-  setup(props, { emit, slots }) {
-    const typeClass = `is-${props.type}`;
-    const sizeClass = `is-${props.size}`;
-    const handleClick = () => emit("on-click");
-    return {
-      typeClass,
-      sizeClass,
-      handleClick,
-    };
-  },
-});
+<script lang="ts" setup>
+import {
+  Props,
+  Events,
+  buttonProps,
+  buttonEmits,
+} from "@/components/button/button.d";
+
+// define props
+const props: Props = defineProps(buttonProps);
+// define emit
+const emit = defineEmits(buttonEmits);
+
+/**
+ * handle click button
+ *
+ * @param {Event} evt - click event
+ */
+const handleClick = (evt: Event) => {
+  emit(Events.click, evt);
+};
 </script>

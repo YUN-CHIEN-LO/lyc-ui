@@ -5,8 +5,15 @@
   transition: $transition;
 }
 
-@mixin setFlex($fd: row, $jc: flex-start, $ai: flex-start, $fw: wrap) {
-  display: flex;
+@mixin setMultipleTransitions($transitions...) {
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}
+
+@mixin setFlex($f: flex, $fd: row, $jc: flex-start, $ai: flex-start, $fw: wrap) {
+  display: $f;
   flex-direction: $fd;
   justify-content: $jc;
   align-items: $ai;
@@ -36,5 +43,18 @@
 
   @keyframes #{$name} {
     @content;
+  }
+}
+
+@mixin setSelectColor($color, $bgColor) {
+  &::-moz-selection {
+    /* Code for Firefox */
+    color: $color;
+    background: $bgColor;
+  }
+
+  &::selection {
+    color: $color;
+    background: $bgColor;
   }
 }

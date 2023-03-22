@@ -1,4 +1,4 @@
-export const propTypes = {
+export const propColors = {
   default: "default",
   primary: "primary",
   secondary: "secondary",
@@ -6,7 +6,6 @@ export const propTypes = {
   danger: "danger",
   warning: "warning",
   dark: "dark",
-  light: "light",
 };
 export const propSizes = {
   small: "small",

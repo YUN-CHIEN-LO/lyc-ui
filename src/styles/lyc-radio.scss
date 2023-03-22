@@ -1,0 +1,15 @@
+@import "./lyc-global.scss";
+
+.lyc-radio {
+  &__radio {
+    border: solid 1px $radio-border-color;
+    border-radius: 100%;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: red;
+    & > .check-input__icon > .lyc-icon__strike {
+      background-color: $radio-icon-color;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@import "./lyc-global.scss";
+
+.lyc-row {
+  @include setFlex();
+}

@@ -1,0 +1,34 @@
+@import "./lyc-global.scss";
+
+.lyc-toggle {
+  &__target {
+    min-height: $toggle-target-min-height;
+    @include setFlex($ai: center);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &.is-full {
+    width: 100%;
+  }
+
+  &.is-divide {
+    border-radius: $toggle-border-radius;
+
+    & .lyc-toggle__target {
+      box-sizing: border-box;
+      padding: $toggle-padding;
+      @include setTransition();
+    }
+
+    & .lyc-toggle__content {
+      border-top: solid 1px $toggle-border-color;
+
+      &__wrapper {
+        padding: $toggle-padding;
+      }
+    }
+  }
+}

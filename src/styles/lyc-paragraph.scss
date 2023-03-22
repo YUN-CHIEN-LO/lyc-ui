@@ -1,0 +1,85 @@
+@import "./lyc-global.scss";
+
+@mixin setParagraphColor($color, $textColor, $blockColor) {
+  border-color: $color;
+  color: $textColor;
+  background-color: $blockColor;
+
+}
+
+.lyc-paragraph {
+  margin: $paragraph-margin;
+  padding: $paragraph-padding;
+  box-sizing: border-box;
+  font-size: $base-font-size;
+
+  &__label {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  &__footnote {
+    margin-top: 4px;
+    margin-bottom: 0px;
+    text-align: right;
+    font-size: $paragraph-footnote-font-size;
+    color: $color-gray;
+  }
+
+  &.is-quote {
+    border-left: solid $paragraph-quote-border-width $base-font-color;
+  }
+
+  &.is-block {
+    padding: $paragraph-block-padding;
+    border: solid $paragraph-block-border-width $base-font-color;
+    border-radius: $paragraph-block-border-radius;
+  }
+
+  &.is-default {
+    @include setParagraphColor($color: $paragraph-default-color,
+      $textColor: $paragraph-default-text-color,
+      $blockColor: $paragraph-default-block-color);
+
+    &.is-paragraph {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &.is-primary {
+    @include setParagraphColor($color: $paragraph-primary-color,
+      $textColor: $paragraph-primary-text-color,
+      $blockColor: $paragraph-primary-block-color);
+  }
+
+  &.is-secondary {
+    @include setParagraphColor($color: $paragraph-secondary-color,
+      $textColor: $paragraph-secondary-text-color,
+      $blockColor: $paragraph-secondary-block-color);
+  }
+
+  &.is-success {
+    @include setParagraphColor($color: $paragraph-success-color,
+      $textColor: $paragraph-success-text-color,
+      $blockColor: $paragraph-success-block-color);
+  }
+
+  &.is-danger {
+    @include setParagraphColor($color: $paragraph-danger-color,
+      $textColor: $paragraph-danger-text-color,
+      $blockColor: $paragraph-danger-block-color);
+  }
+
+  &.is-warning {
+    @include setParagraphColor($color: $paragraph-warning-color,
+      $textColor: $paragraph-warning-text-color,
+      $blockColor: $paragraph-warning-block-color);
+  }
+
+  &.is-dark {
+    @include setParagraphColor($color: $paragraph-dark-color,
+      $textColor: $paragraph-dark-text-color,
+      $blockColor: $paragraph-dark-block-color);
+  }
+}

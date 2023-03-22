@@ -1,0 +1,111 @@
+@import "./lyc-global.scss";
+
+@mixin setHeaderColor($color, $highlightColor) {
+  color: $color;
+  border-color: $color;
+
+  &:not(.is-inverse) {
+    @include setSelectColor($color: $color-white, $bgColor: $highlightColor );
+  }
+
+  &.is-inverse {
+    padding: 0px 16px;
+    color: $color-white;
+    background-color: $color;
+    @include setSelectColor($color: $color, $bgColor: $color-white);
+  }
+}
+
+
+.lyc-header {
+  &.is-h1 {
+    margin: 24px 0px;
+    font-size: $fontsize-h1;
+  }
+
+  &.is-h2 {
+    margin: 16px 0px;
+    font-size: $fontsize-h2;
+  }
+
+  &.is-h3 {
+    margin: 12px 0px;
+    font-size: $fontsize-h3;
+  }
+
+  &.is-h4 {
+    margin: 12px 0px;
+    font-size: $fontsize-h4;
+  }
+
+  &.is-h5 {
+    margin: 8px 0px;
+    font-size: $fontsize-h5;
+  }
+
+  &.is-h6 {
+    margin: 8px 0px;
+    font-size: $fontsize-h6;
+  }
+
+  &.is-underline {
+    border-bottom: solid 1px $base-font-color;
+
+    &.is-h1 {
+      border-width: 6px;
+      line-height: 3;
+    }
+
+    &.is-h2 {
+      border-width: 4px;
+      line-height: 2;
+    }
+
+    &.is-h3,
+    &.is-h4 {
+      border-width: 2px;
+      line-height: 1.8;
+    }
+
+    &.is-h5,
+    &.is-h6 {
+      border-width: 1px;
+      line-height: 1.5;
+    }
+  }
+
+  &.is-default {
+    @include setHeaderColor($color: $header-default-color,
+      $highlightColor: $header-default-highlight-color );
+  }
+
+  &.is-dark {
+    @include setHeaderColor($color: $header-dark-color,
+      $highlightColor: $header-dark-highlight-color);
+  }
+
+  &.is-primary {
+    @include setHeaderColor($color: $header-primary-color,
+      $highlightColor: $header-primary-highlight-color);
+  }
+
+  &.is-secondary {
+    @include setHeaderColor($color: $header-secondary-color,
+      $highlightColor: $header-secondary-highlight-color);
+  }
+
+  &.is-warning {
+    @include setHeaderColor($color: $header-warning-color,
+      $highlightColor: $header-warning-highlight-color);
+  }
+
+  &.is-success {
+    @include setHeaderColor($color: $header-success-color,
+      $highlightColor: $header-success-highlight-color);
+  }
+
+  &.is-danger {
+    @include setHeaderColor($color: $header-danger-color,
+      $highlightColor: $header-danger-highlight-color);
+  }
+}

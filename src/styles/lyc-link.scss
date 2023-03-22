@@ -1,0 +1,195 @@
+@import "./lyc-global.scss";
+
+@mixin setLinkColor($color,
+  $textColor,
+  $hoverTextColor,
+  $focusColor,
+  $disabledColor,
+  $disabledTextColor,
+  $disabledHoverTextColor) {
+  color: $textColor;
+
+  &::before {
+    height: 2px;
+    background-color: $color;
+  }
+
+  &:not(.is-disabled) {
+
+    &:focus,
+    &:active {
+      &::before {
+        background-color: $focusColor;
+      }
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    &::before {
+      background-color: $disabledColor;
+    }
+  }
+
+  &:not(.is-active) {
+    &:not(.is-disabled) {
+
+      &:hover {
+        color: $hoverTextColor;
+
+        &::before {
+          height: 100%;
+        }
+      }
+    }
+
+    &.is-disabled {
+      color: $disabledTextColor;
+    }
+  }
+
+  &.is-active {
+    color: $hoverTextColor;
+
+    &::before {
+      height: 100%;
+    }
+
+    &.is-disabled {
+      color: $disabledHoverTextColor;
+    }
+
+
+  }
+}
+
+.lyc-link {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  @include setTransition();
+  margin-left: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+  text-decoration: none;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.is-full {
+    width: 100%;
+  }
+
+  &.is-alone {
+    margin: 0px;
+    margin-bottom: 8px;
+  }
+
+  &.is-small {
+    padding: $base-small-padding-vertical $base-small-padding-horizontal;
+    height: $base-small-height;
+    font-size: $base-small-font-size;
+    border-width: $base-small-border-width;
+  }
+
+  &.is-medium {
+    padding: $base-medium-padding-vertical $base-medium-padding-horizontal;
+    height: $base-medium-height;
+    font-size: $base-medium-font-size;
+    border-width: $base-medium-border-width;
+  }
+
+  &.is-large {
+    padding: $base-large-padding-vertical $base-large-padding-horizontal;
+    height: $base-large-height;
+    font-size: $base-large-font-size;
+    border-width: $base-large-border-width;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    @include setTransition();
+    z-index: -1;
+  }
+
+  &.is-default {
+    @include setLinkColor($color: $link-default-color,
+      $textColor: $link-default-text-color,
+      $hoverTextColor: $link-default-hover-text-color,
+      $focusColor: $link-default-focus-color,
+      $disabledColor: $link-default-disabled-color,
+      $disabledTextColor: $link-default-disabled-text-color,
+      $disabledHoverTextColor: $link-default-disabled-hover-text-color );
+  }
+
+
+  &.is-dark {
+    @include setLinkColor($color: $link-dark-color,
+      $textColor: $link-dark-text-color,
+      $hoverTextColor: $link-dark-hover-text-color,
+      $focusColor: $link-dark-focus-color,
+      $disabledColor: $link-dark-disabled-color,
+      $disabledTextColor: $link-dark-disabled-text-color,
+      $disabledHoverTextColor: $link-dark-disabled-hover-text-color );
+  }
+
+  &.is-primary {
+    @include setLinkColor($color: $link-primary-color,
+      $textColor: $link-primary-text-color,
+      $hoverTextColor: $link-primary-hover-text-color,
+      $focusColor: $link-primary-focus-color,
+      $disabledColor: $link-primary-disabled-color,
+      $disabledTextColor: $link-primary-disabled-text-color,
+      $disabledHoverTextColor: $link-primary-disabled-hover-text-color );
+  }
+
+  &.is-secondary {
+    @include setLinkColor($color: $link-secondary-color,
+      $textColor: $link-secondary-text-color,
+      $hoverTextColor: $link-secondary-hover-text-color,
+      $focusColor: $link-secondary-focus-color,
+      $disabledColor: $link-secondary-disabled-color,
+      $disabledTextColor: $link-secondary-disabled-text-color,
+      $disabledHoverTextColor: $link-secondary-disabled-hover-text-color );
+  }
+
+  &.is-danger {
+    @include setLinkColor($color: $link-danger-color,
+      $textColor: $link-danger-text-color,
+      $hoverTextColor: $link-danger-hover-text-color,
+      $focusColor: $link-danger-focus-color,
+      $disabledColor: $link-danger-disabled-color,
+      $disabledTextColor: $link-danger-disabled-text-color,
+      $disabledHoverTextColor: $link-danger-disabled-hover-text-color );
+  }
+
+  &.is-success {
+    @include setLinkColor($color: $link-success-color,
+      $textColor: $link-success-text-color,
+      $hoverTextColor: $link-success-hover-text-color,
+      $focusColor: $link-success-focus-color,
+      $disabledColor: $link-success-disabled-color,
+      $disabledTextColor: $link-success-disabled-text-color,
+      $disabledHoverTextColor: $link-success-disabled-hover-text-color );
+  }
+
+  &.is-warning {
+    @include setLinkColor($color: $link-warning-color,
+      $textColor: $link-warning-text-color,
+      $hoverTextColor: $link-warning-hover-text-color,
+      $focusColor: $link-warning-focus-color,
+      $disabledColor: $link-warning-disabled-color,
+      $disabledTextColor: $link-warning-disabled-text-color,
+      $disabledHoverTextColor: $link-warning-disabled-hover-text-color );
+  }
+
+}

@@ -1,4 +1,4 @@
-import Component from "@/components/navbar/LycNavbar.vue";
+import Component from "@/components/navbar/lyc-navbar";
 import { App } from "vue";
 
 Component.install = (Vue: App) => {

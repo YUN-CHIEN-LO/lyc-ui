@@ -1,4 +1,96 @@
+// checkbox / radio
+.check-input {
+
+  &>input {
+    display: none;
+  }
+
+  &>label {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+  }
+
+  &.is-no-label>label {
+    &>.check-input__input {
+      margin: 0;
+    }
+
+    &>.check-input__label {
+      display: none;
+    }
+  }
+
+  &__input {
+    vertical-align: text-top;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    @include setFlex($f: inline-flex, $jc: center, $ai: center);
+    cursor: pointer;
+    background-color: $color-white;
+    @include setTransition();
+  }
+
+  &:not(.is-disabled):hover {
+    & .check-input__input {
+      @include setShadow($base-shadow-small $base-shadow-small $base-shadow-blur $base-shadow-color);
+    }
+  }
+
+  &:not(.is-checked) {
+    &>label>.check-input__input>.lyc-icon.check-input__icon {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  &.is-disabled {
+    &>label {
+      &>.check-input__label {
+        opacity: 0.5;
+      }
+
+      &>.check-input__input {
+        cursor: not-allowed;
+        background-color: $color-gray-light;
+
+        &>.lyc-icon.check-input__icon {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  &__group {
+    &.is-horizontal>.check-input {
+      margin-right: 16px;
+    }
+
+    &.is-vertical>.check-input {
+      display: block;
+    }
+  }
+}
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  @include setMultipleTransitions(transform 0.3s ease, opacity 0.3s ease);
+}
+
+.list-leave-to,
+.list-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.list-leave-active {
+  position: absolute;
+}
+
 * {
-  color: $base-text-color;
-  font-size: $base-font-size;
+  color: $base-font-color;
 }

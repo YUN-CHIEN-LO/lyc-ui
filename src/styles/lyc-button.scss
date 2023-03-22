@@ -1,70 +1,263 @@
 @import "./lyc-global.scss";
 
+@mixin setButtonSize($height,
+  $radius,
+  $fontSize,
+  $paddingVertical,
+  $paddingHorizontal,
+  $borderWidth) {
+  padding: $paddingVertical $paddingHorizontal ;
+  height: $height;
+  border-radius: $radius;
+  box-sizing: border-box;
+
+  &>.lyc-button__label {
+    font-size: $fontSize;
+    line-height: 1;
+  }
+
+  &.is-square {
+    padding: $paddingVertical;
+    width: $height;
+    height: $height;
+  }
+
+  &.is-outline {
+    border-width: $borderWidth;
+  }
+
+}
+
+@mixin setButtonColor($color,
+  $textColor,
+  $hoverColor,
+  $outlineColor,
+  $activeColor,
+  $disabledColor,
+  $disabledTextColor,
+  $disabledOutlineColor) {
+
+  &:not(.is-outline) {
+    background-color: $color;
+
+    &>.lyc-button__label {
+      color: $textColor;
+    }
+
+    &:not(.is-disabled) {
+
+      &:hover {
+        background-color: $hoverColor;
+      }
+
+      &:active,
+      &:focus,
+      &:visited {
+        background-color: $activeColor;
+      }
+    }
+
+    &.is-disabled {
+      background-color: $disabledColor;
+
+      &>.lyc-button__label {
+        color: $disabledTextColor;
+      }
+    }
+
+
+  }
+
+  &.is-outline {
+    border-color: $outlineColor;
+    background-color: $color-transparent;
+
+    &>.lyc-button__label {
+      color: $outlineColor;
+    }
+
+    &:not(.is-disabled) {
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:visited {
+        background-color: rgba($color: $hoverColor, $alpha: 0.1);
+      }
+
+      &:active,
+      &:focus,
+      &:visited {
+        border-color: $activeColor;
+      }
+    }
+
+    &.is-disabled {
+      border-color: $disabledOutlineColor;
+
+      &>.lyc-button__label {
+        color: $disabledOutlineColor;
+      }
+    }
+  }
+
+}
+
 .lyc-button {
   display: inline-block;
-  @extend .has-border-radius;
-  @extend .has-transition;
-  @extend .prevent-select;
+  vertical-align: middle;
+  @include setTransition();
+  text-decoration: none;
   margin-left: 4px;
   margin-bottom: 4px;
-  text-align: center;
   box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &__label {
+    text-align: center;
+    @include setFlex($jc: center, $ai: center);
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+
   &:first-child {
     margin-left: 0;
   }
-  cursor: pointer;
-  &:hover {
-    filter: brightness(110%);
+
+  &.is-outline {
+    background-color: $color-transparent;
+    border: solid;
   }
+
   &.is-shadow {
-    &:active,
-    &:focus {
-      @include setShadow($shadow-small $shadow-small $shadow-blur $shadow-color);
+
+    &:not(.is-disabled):active,
+    &:not(.is-disabled):focus {
+      @include setShadow($base-shadow-small $base-shadow-small $base-shadow-blur $base-shadow-color);
     }
   }
+
   &.is-full {
     width: 100%;
   }
+
   &.is-alone {
-    margin: 4px 0px;
+    margin: 0px;
   }
+
   &.is-small {
-    padding: 4px;
+    @include setButtonSize($height: $base-small-height,
+      $radius: $base-small-radius,
+      $fontSize: $base-small-font-size,
+      $paddingVertical: $base-small-padding-vertical,
+      $paddingHorizontal: $base-small-padding-horizontal,
+      $borderWidth: $base-small-border-width );
   }
+
   &.is-medium {
-    padding: 8px 16px;
+    @include setButtonSize($height: $base-medium-height,
+      $radius: $base-medium-radius,
+      $fontSize: $base-medium-font-size,
+      $paddingVertical: $base-medium-padding-vertical,
+      $paddingHorizontal: $base-medium-padding-horizontal,
+      $borderWidth: $base-medium-border-width );
+
   }
+
   &.is-large {
-    padding: 12px 18px;
+    @include setButtonSize($height: $base-large-height,
+      $radius: $base-large-radius,
+      $fontSize: $base-large-font-size,
+      $paddingVertical: $base-large-padding-vertical,
+      $paddingHorizontal: $base-large-padding-horizontal,
+      $borderWidth: $base-large-border-width );
   }
+
   &.is-default {
-    &:active,
-    &:focus {
-      background-color: rgba($color-white, 0.4);
-    }
+    @include setButtonColor($color: $button-default-color,
+      $textColor: $button-default-text-color,
+      $hoverColor: $button-default-hover-color,
+      $activeColor: $button-default-active-color,
+      $outlineColor: $button-default-outline-color,
+      $disabledColor: $button-default-disabled-color,
+      $disabledTextColor: $button-default-disabled-text-color,
+      $disabledOutlineColor: $button-default-disabled-outline-color);
   }
-  &.is-light {
-    background-color: $color-light;
-  }
+
   &.is-dark {
-    background-color: $color-dark;
-    & * {
-      color: $color-white;
-    }
+    @include setButtonColor($color: $button-dark-color,
+      $textColor: $button-dark-text-color,
+      $hoverColor: $button-dark-hover-color,
+      $activeColor: $button-dark-active-color,
+      $outlineColor: $button-dark-outline-color,
+      $disabledColor: $button-dark-disabled-color,
+      $disabledTextColor: $button-dark-disabled-text-color,
+      $disabledOutlineColor: $button-dark-disabled-outline-color);
   }
+
   &.is-primary {
-    background-color: $color-primary;
+    @include setButtonColor($color: $button-primary-color,
+      $textColor: $button-primary-text-color,
+      $hoverColor: $button-primary-hover-color,
+      $activeColor: $button-primary-active-color,
+      $outlineColor: $button-primary-outline-color,
+      $disabledColor: $button-primary-disabled-color,
+      $disabledTextColor: $button-primary-disabled-text-color,
+      $disabledOutlineColor: $button-primary-disabled-outline-color);
+
   }
+
   &.is-secondary {
-    background-color: $color-secondary;
+    @include setButtonColor($color: $button-secondary-color,
+      $textColor: $button-secondary-text-color,
+      $hoverColor: $button-secondary-hover-color,
+      $activeColor: $button-secondary-active-color,
+      $outlineColor: $button-secondary-outline-color,
+      $disabledColor: $button-secondary-disabled-color,
+      $disabledTextColor: $button-secondary-disabled-text-color,
+      $disabledOutlineColor: $button-secondary-disabled-outline-color);
   }
+
   &.is-danger {
-    background-color: $color-danger;
+    @include setButtonColor($color: $button-danger-color,
+      $textColor: $button-danger-text-color,
+      $hoverColor: $button-danger-hover-color,
+      $activeColor: $button-danger-active-color,
+      $outlineColor: $button-danger-outline-color,
+      $disabledColor: $button-danger-disabled-color,
+      $disabledTextColor: $button-danger-disabled-text-color,
+      $disabledOutlineColor: $button-danger-disabled-outline-color);
   }
+
   &.is-success {
-    background-color: $color-success;
+    @include setButtonColor($color: $button-success-color,
+      $textColor: $button-success-text-color,
+      $hoverColor: $button-success-hover-color,
+      $activeColor: $button-success-active-color,
+      $outlineColor: $button-success-outline-color,
+      $disabledColor: $button-success-disabled-color,
+      $disabledTextColor: $button-success-disabled-text-color,
+      $disabledOutlineColor: $button-success-disabled-outline-color);
   }
+
   &.is-warning {
-    background-color: $color-warning;
+    @include setButtonColor($color: $button-warning-color,
+      $textColor: $button-warning-text-color,
+      $hoverColor: $button-warning-hover-color,
+      $activeColor: $button-warning-active-color,
+      $outlineColor: $button-warning-outline-color,
+      $disabledColor: $button-warning-disabled-color,
+      $disabledTextColor: $button-warning-disabled-text-color,
+      $disabledOutlineColor: $button-warning-disabled-outline-color);
   }
+
 }

@@ -1,0 +1,9 @@
+@import "./lyc-global.scss";
+
+.lyc-collapse {
+  &__enter,
+  &__leave {
+    overflow: hidden;
+    @include setTransition($transition: height 0.2s ease-in-out);
+  }
+}

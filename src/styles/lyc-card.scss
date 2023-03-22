@@ -1,77 +1,120 @@
 @import "./lyc-global.scss";
 
+@mixin setCardColor($color, $textColor, $fullColor, $fullTextColor) {
+  background-color: $color-transparent;
+  border: solid 2px $fullColor;
+
+  &>.lyc-card__header {
+
+    background-color: $color;
+
+    & * {
+      color: $fullTextColor;
+    }
+  }
+
+  &:not(.is-full)>.lyc-card__header {
+    border-bottom: solid 2px $fullColor;
+  }
+
+  &.is-full {
+    background-color: $fullColor;
+
+    & * {
+      color: $fullTextColor;
+    }
+
+    &>.lyc-card__header {
+      border-bottom: solid 2px $color-white;
+    }
+  }
+}
+
 .lyc-card {
-  @extend .has-margin;
-  @extend .has-transition;
-  border-radius: $border-radius-large;
+  @include setTransition();
+  border-radius: $card-radius;
   display: inline-block;
+  vertical-align: top;
   box-sizing: border-box;
-  min-width: 200px;
-  background-color: $color-white;
   overflow: hidden;
+
   &__header {
     @include setFlex($fw: nowrap);
+    min-height: $card-title-height;
   }
+
   &__title {
-    @extend .has-padding;
+    box-sizing: border-box;
+    padding: $card-padding;
+    @include setFlex($ai: center);
+    width: 100%;
   }
+
   &__tool {
-    @extend .has-padding;
     margin-left: auto;
   }
+
   &__close {
     @include setFlex();
   }
+
   &__body {
-    @extend .has-padding;
+    box-sizing: border-box;
+    padding: $card-padding;
   }
+
   &.is-shadow:hover {
-    @extend .has-shadow;
+    @include setTransition();
+    @include setShadow($base-shadow-medium $base-shadow-medium $base-shadow-blur $base-shadow-color);
   }
-  &:not(.is-full) {
-    & .lyc-card__body {
-      background-color: $color-white;
-    }
-  }
-  &.is-full {
-    & .lyc-card__header {
-      border-bottom: solid 2px $color-white;
-    }
-    &.is-dark {
-      & * {
-        color: $color-white;
-      }
-    }
-  }
+
   &.is-default {
-    & .lyc-card__header {
-      border-bottom: solid 2px $color-light;
-    }
+    @include setCardColor($color: $card-default-color,
+      $textColor: $card-default-text-color,
+      $fullColor: $card-default-full-color,
+      $fullTextColor: $card-default-full-text-color);
   }
-  &.is-light {
-    background-color: $color-light;
-  }
+
+
   &.is-dark {
-    background-color: $color-dark;
-    & .lyc-card__header {
-      & * {
-        color: $color-white;
-      }
-    }
+    @include setCardColor($color: $card-dark-color,
+      $textColor: $card-dark-text-color,
+      $fullColor: $card-dark-full-color,
+      $fullTextColor: $card-dark-full-text-color);
   }
+
   &.is-primary {
-    background-color: $color-primary;
+    @include setCardColor($color: $card-primary-color,
+      $textColor: $card-primary-text-color,
+      $fullColor: $card-primary-full-color,
+      $fullTextColor: $card-primary-full-text-color);
   }
+
   &.is-secondary {
-    background-color: $color-secondary;
+    @include setCardColor($color: $card-secondary-color,
+      $textColor: $card-secondary-text-color,
+      $fullColor: $card-secondary-full-color,
+      $fullTextColor: $card-secondary-full-text-color);
   }
+
   &.is-danger {
-    background-color: $color-danger;
+    @include setCardColor($color: $card-danger-color,
+      $textColor: $card-danger-text-color,
+      $fullColor: $card-danger-full-color,
+      $fullTextColor: $card-danger-full-text-color);
   }
+
   &.is-success {
-    background-color: $color-success;
+    @include setCardColor($color: $card-success-color,
+      $textColor: $card-success-text-color,
+      $fullColor: $card-success-full-color,
+      $fullTextColor: $card-success-full-text-color);
   }
+
   &.is-warning {
-    background-color: $color-warning;
+    @include setCardColor($color: $card-warning-color,
+      $textColor: $card-warning-text-color,
+      $fullColor: $card-warning-full-color,
+      $fullTextColor: $card-warning-full-text-color);
   }
 }
