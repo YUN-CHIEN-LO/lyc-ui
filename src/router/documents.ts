@@ -45,6 +45,14 @@ export const layoutRoutes: Array<RouteRecordRaw> = [
     },
   },
   {
+    name: "docList",
+    path: "/layout/list",
+    component: () => import("@/doc/DocList.vue"),
+    meta: {
+      title: "List",
+    },
+  },
+  {
     name: "docCard",
     path: "/layout/card",
     component: () => import("@/doc/DocCard.vue"),

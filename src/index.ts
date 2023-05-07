@@ -13,6 +13,8 @@ import LycHeader from "@/components/header";
 import LycIcon from "@/components/icon";
 import LycInput from "@/components/input";
 import LycLink from "@/components/link";
+import LycList from "@/components/list";
+import LycListItem from "@/components/list-item";
 import LycMain from "@/components/main";
 import LycModal from "@/components/modal";
 import LycNavbar from "@/components/navbar";
@@ -39,6 +41,8 @@ const components: Record<string, ReturnType<typeof defineComponent>> = {
   LycHeader,
   LycIcon,
   LycLink,
+  LycListItem,
+  LycList,
   LycMain,
   LycModal,
   LycNavbar,
@@ -71,6 +75,8 @@ export { default as LycHeader } from "@/components/header";
 export { default as LycIcon } from "@/components/icon";
 export { default as LycInput } from "@/components/input";
 export { default as LycLink } from "@/components/link";
+export { default as LycList } from "@/components/list";
+export { default as LycListItem } from "@/components/list-item";
 export { default as LycMain } from "@/components/main";
 export { default as LycModal } from "@/components/modal";
 export { default as LycNavbar } from "@/components/navbar";
