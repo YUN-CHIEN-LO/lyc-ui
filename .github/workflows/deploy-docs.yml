@@ -5,7 +5,6 @@ name: Deploy VitePress site to Pages
 on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
-  push:
   pull_request:
     types:
       - closed
@@ -33,7 +32,6 @@ defaults:
 jobs:
   # Build job
   build:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
