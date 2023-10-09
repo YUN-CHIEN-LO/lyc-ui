@@ -7,6 +7,9 @@ hero:
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:
+    - theme: brand  
+      text: Design Guide
+      link: /design-guide  
     - theme: brand
       text: Markdown Examples
       link: /markdown-examples
