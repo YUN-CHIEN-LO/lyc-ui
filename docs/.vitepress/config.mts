@@ -14,6 +14,10 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Design Guide',
+        link: '/design-guide'
+      },
+      {
         text: 'Examples',
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
