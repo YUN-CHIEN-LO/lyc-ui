@@ -5,8 +5,7 @@ name: Deploy VitePress site to Pages
 on:
   # Runs on pushes targeting the `main` branch. Change this to `master` if you're
   # using the `master` branch as the default branch.
-  # push:
-  #   branches: [chore]
+  push:
   pull_request:
     types:
       - closed
@@ -56,7 +55,7 @@ jobs:
       - name: Build with VitePress
         run: |
           npm ls
-          npm run docs:build # or pnpm docs:build / yarn docs:build / bun run docs:build
+          npm run build
           touch ./.vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview docs --port 4173"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview docs --port 4173"
   },
   "name": "lyc-ui-docs",
   "version": "1.0.0",
