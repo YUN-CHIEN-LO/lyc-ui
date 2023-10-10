@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "LYC Ui Documents",
   description: "A VitePress Site",
-  base: '/docs/',
+  base: '/lyc-ui/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
