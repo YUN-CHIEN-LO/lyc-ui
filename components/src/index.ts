@@ -1,2 +1,2 @@
-export * from "./packages/button";
-export * from "./packages/input";
+export { LycButton } from "@/packages/button";
+export { LycInput } from "@/packages/input";
