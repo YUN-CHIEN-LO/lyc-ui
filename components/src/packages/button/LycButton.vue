@@ -1,5 +1,7 @@
 <template>
-  <button class="lyc-button"></button>
+  <button class="lyc-button">
+    <slot></slot>
+  </button>
 </template>
 
 <script setup lang="ts"></script>

@@ -1,12 +1,12 @@
 name: CI
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
       - name: Git config user
@@ -17,9 +17,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Rush Update
+        run: node common/scripts/install-run-rush.js update
       - name: Verify Change Logs
         run: node common/scripts/install-run-rush.js change --verify
       - name: Rush Install
         run: node common/scripts/install-run-rush.js install
       - name: Rush rebuild
         run: node common/scripts/install-run-rush.js rebuild -T lyc-ui-docs --verbose
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Rush Update
+          commit_options: "--no-verify --signoff"

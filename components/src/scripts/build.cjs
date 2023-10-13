@@ -13,6 +13,12 @@ const baseConfig = defineConfig({
   configFile: false,
   publicDir: false,
   plugins: [vue(), vueJsx()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "../"),
+    },
+    extensions: [".ts", ".tsx", ".json", ".vue", ".scss"],
+  },
 });
 
 const rollupOptions = {
