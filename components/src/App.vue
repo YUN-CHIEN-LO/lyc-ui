@@ -4,6 +4,7 @@ import { LycButton, LycInput } from "./index";
 
 <template>
   <div>
+    1
     <lyc-button>Button</lyc-button>
     <LycInput />
   </div>

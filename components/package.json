@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly && node ./src/scripts/build.cjs",
     "types": "vue-tsc ",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "npm cache clean -force"
   },
   "dependencies": {
     "vue": "^3.3.4"
