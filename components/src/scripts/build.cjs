@@ -19,6 +19,18 @@ const baseConfig = defineConfig({
     },
     extensions: [".ts", ".tsx", ".json", ".vue", ".scss"],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+                            @import "${path.resolve(
+                              __dirname,
+                              "../styles/_global.scss"
+                            )}";
+                        `,
+      },
+    },
+  },
 });
 
 const rollupOptions = {

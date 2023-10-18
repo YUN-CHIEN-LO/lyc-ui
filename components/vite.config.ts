@@ -11,6 +11,18 @@ export default defineConfig({
     },
     extensions: [".ts", ".tsx", ".json", ".vue", ".scss"],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+                            @import "${path.resolve(
+                              __dirname,
+                              "./src/styles/_global.scss"
+                            )}";
+                        `,
+      },
+    },
+  },
   build: {
     target: "es6",
     chunkSizeWarningLimit: 2000,

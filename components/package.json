@@ -17,7 +17,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly && node ./src/scripts/build.cjs",
+    "build": "vite build && vue-tsc --emitDeclarationOnly && node ./src/scripts/build.cjs && cp -a ./src/themes/ ./dist/themes/",
     "types": "vue-tsc ",
     "preview": "vite preview",
     "clean": "npm cache clean -force"
