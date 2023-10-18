@@ -3,8 +3,7 @@ import { LycButton, LycInput } from "./index";
 </script>
 
 <template>
-  <div>
-    1
+  <div class="lyc-app">
     <lyc-button>Button</lyc-button>
     <LycInput />
   </div>

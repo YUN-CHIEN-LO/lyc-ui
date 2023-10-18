@@ -8,6 +8,6 @@
 
 <style lang="scss" scoped>
 .lyc-button {
-  border: solid 1px red;
+  border: solid 1px $color-primary;
 }
 </style>
