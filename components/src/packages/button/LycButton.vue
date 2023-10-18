@@ -1,5 +1,6 @@
 <template>
   <button class="lyc-button">
+    lyc button
     <slot></slot>
   </button>
 </template>
