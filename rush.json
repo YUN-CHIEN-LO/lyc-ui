@@ -434,7 +434,7 @@
     //   "tags": [ "tools" ]
     // }
     {
-      "packageName": "lyc-ui",
+      "packageName": "@yun-chien-lo/lyc-ui",
       "projectFolder": "components"
     },
     {
